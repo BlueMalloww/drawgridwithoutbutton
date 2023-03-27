@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Bootstrap Grid Layout</title>
+    <!-- include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+      .col {
+        border: 1px solid black;
+        height: 500px;
+      }
+      .container{
+        place-content: center;
+        margin:auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="gridContainer"></div> <!--create div with an id="gridContainer"-->
+
+    <script>
+      //give the number of column variable
+      let numColumns = 5;
+      let columnSizeClass = 'col-md-4';// the size of each column
+      //const columnText = ['Column 1', 'Column 2', 'Column 3'];
+
+      // create a container div
+      let container = document.createElement('div');
+      container.className = 'container-fluid';
+
+      // create a row div
+      let row = document.createElement('div');
+      row.className = 'row';
+
+      // create the columns
+      for (let i = 0; i < numColumns; i++) {
+        let col = document.createElement('div');
+        col.className = columnSizeClass + ' col'; // add 'col' class to apply the border
+        //col.textContent = columnText[i];
+        row.appendChild(col);
+      }
+
+      // append the row to the container
+      container.appendChild(row);
+
+      // append the container to the document body
+      let gridContainer = document.getElementById('gridContainer');
+      gridContainer.appendChild(container);
+    </script>
+    <!-- include Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  </body>
+</html>
